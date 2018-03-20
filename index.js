@@ -1,4 +1,4 @@
-const controller = require('./controller.js');
+const Controller = require('./controller.js');
 const argv = process.argv;
 const command = process.argv[2];
 
@@ -9,31 +9,27 @@ let username;
 
 switch(command){
 
-  case 'createDB':
-    controller.createDB();
-    break;
-
   case 'register':
     name = argv[3];
     password = argv[4];
     position = argv[5];
 
-    controller.registerEmployee(name, password, position);
+    Controller.registerEmployee(name, password, position);
     break;
 
   case 'login':
     username = argv[3];
     password = argv[4];
 
-    controller.loginEmployee(username, password);
+    Controller.loginEmployee(username, password);
     break;
 
   case 'logout':
-    controller.logoutEmployee();
+    Controller.logoutEmployee();
     break;
 
   case 'addPatient':
-    controller.registerPatient(argv);
+    Controller.registerPatient(argv);
     break;
 
 }

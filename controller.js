@@ -1,40 +1,34 @@
-const model = require('./model.js');
-const view = require('./view.js');
+const Employee = require('./Model/employee.js');
+const Patient = require('./Model/patient.js');
+const View = require('./view.js');
 
 class Controller{
 
-  static createDB(){
-    model.createDatabase((err)=>{
-      (!err) ?
-      view.showSuccess('createDB') : view.showFail('createDB');
-    });
-  }
-
   static registerEmployee(name, password, position){
-    model.addEmployeeToDatabase(name, password, position, (err, data) =>{
+    Employee.addEmployeeToDatabase(name, password, position, (err, data) =>{
       (!err) ?
-      view.showSuccess('register', data) : view.showFail('register');
+      View.showSuccess('register', data) : View.showFail('register');
     });
   }
 
   static loginEmployee(username, password){
-    model.checkLoginEmployee(username, password, (err, data) =>{
+    Employee.checkLoginEmployee(username, password, (err, data) =>{
       (!err) ?
-      view.showSuccess('login', data) : view.showFail('login');
+      View.showSuccess('login', data) : View.showFail('login');
     });
   }
 
   static logoutEmployee(){
-    model.checkLogoutEmployee((err, data) =>{
+    Employee.checkLogoutEmployee((err, data) =>{
       (!err) ?
-      view.showSuccess('logout') : view.showFail('logout');
+      View.showSuccess('logout') : View.showFail('logout');
     });
   }
 
   static registerPatient(data_patient){
-    model.addPatient(data_patient, (err, data) =>{
+    Patient.addPatient(data_patient, (err, data) =>{
       (!err) ?
-      view.showSuccess('addPatient') : view.showFail('addPatient');
+      View.showSuccess('addPatient') : View.showFail('addPatient');
     });
   }
 }
