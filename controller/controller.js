@@ -31,6 +31,25 @@ class Controller {
           View.logoutSuccess(data);
         })
         break;
+
+      case 'addPatient':
+        Employee.addPatient(input[3], input.slice(4).join(' '), data => {
+          View.addPatientSuccess(data);
+        })
+        break;
+
+      case 'showEmployees':
+        Employee.readDataEmployees(data => {
+          View.showEmployees(data);
+        })
+        break;
+
+      case 'showPatients':
+        Employee.readDataPatients(data => {
+          View.showPatients(data);
+        })
+        break;
+        
       default:
 
     }

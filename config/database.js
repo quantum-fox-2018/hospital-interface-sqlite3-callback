@@ -9,11 +9,13 @@ class Database {
       position VARCHAR(30),
       username VARCHAR(30),
       password VARCHAR(30),
-      loginStatus BOOLEAN)`;
+      loginStatus BOOLEAN
+    )`;
     let queryTablePatients = `CREATE TABLE IF NOT EXISTS Patients (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name VARCHAR(50),
-      diagnose TEXT)`;
+      diagnose TEXT
+    )`;
 
     db.run(queryTableEmployees, (err) => {
       if (err) {
